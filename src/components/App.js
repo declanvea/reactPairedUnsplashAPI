@@ -4,6 +4,7 @@ import '../styles/App.css';
 import {fetchImages} from '../action';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { InputGroup, InputGroupAddon, Input, Button, Container, Col, Row } from 'reactstrap';
 
 
 class App extends Component {
@@ -20,13 +21,19 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-
-          <input type="text" placeholder="search api here" onChange={this.handleImage} value={this.state.image}/>
-          <button onClick={() => this.props.fetchImages(this.state.image)}>Submit</button>
-          {this.props.images.map((image, i) => (
+        <InputGroup className="container">
+          <Input type="text" placeholder="search api here" onChange={this.handleImage} value={this.state.image}/>
+        </InputGroup>
+        <Button color="primary" onClick={() => this.props.fetchImages(this.state.image)}>Submit</Button>
+        <Container>
+            <Row>
+        {this.props.images.map((image, i) => (
+          <Col lg='4'>
             <div key={i}><img width="200px" src={image}/></div>
-          ))}
-
+          </Col>
+        ))}
+        </Row>
+        </Container>
       </div>
     );
   }
