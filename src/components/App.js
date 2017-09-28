@@ -17,9 +17,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+        <header style={{backgroundColor:'white', margin:'15px'}}>
+          <img src='http://www.designthinkingmtl.com/wp-content/uploads/2017/04/Unsplash-Logo.png' className="App-logo" alt="logo" />
+
         </header>
         <InputGroup className="container">
           <Input type="text" placeholder="search api here" onChange={this.handleImage} value={this.state.image}/>
